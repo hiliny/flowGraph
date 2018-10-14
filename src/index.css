@@ -1,0 +1,13 @@
+#main{
+    width:900px;
+    height: 700px;
+    border:1px solid #000;
+}
+.footer{
+    padding-top: 15px;
+    text-align: left;
+}
+.footer .btn{
+    margin-right: 20px;
+    cursor: pointer;
+}
