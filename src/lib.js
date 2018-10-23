@@ -20,7 +20,26 @@ var zr = zrender.init(divContainer, null, {
 var domNode = document.getElementById("addNode"),
     domLine = document.getElementById("addLine"),
     delNode = document.getElementById("delNode");
-console.log(zrender.Element);
+
+var tmp = new ArrowLine({
+  shape:{
+    from:{
+      x:20,
+      y:20
+    },
+    to:{
+      x:290,
+      y:290
+    }
+  },
+  style: {
+      stroke: SHAPE_LINE_COLOR,
+      lineWidth: LINE_WIDTH,
+      lineCap: 'butt'
+  },
+  draggable: true
+});
+zr.add(tmp);
 
 // 点击canvas容器，取消激活节点
 zr.on('click', function () {

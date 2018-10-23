@@ -1,3 +1,27 @@
+var ArrowLine = zrender.Path.extend({
+  type:'ArrowLine',
+  shape:{
+    from:{
+      x:0,
+      y:0
+    },
+    to:{
+      x:0,
+      y:0
+    },
+    theta:0,
+    headlen:5
+  },
+  buildPath:function(path,shape){
+    //path.beginPath();
+    path.moveTo(shape.from.x,shape.from.y);
+    path.lineTo(shape.to.x,shape.to.y);
+    path.moveTo(shape.to.x,shape.to.y);
+    path.lineTo(500,50);
+    path.closePath();
+  }
+});
+
 function drawArrow(ctx, fromX, fromY, toX, toY, theta, headlen, width, color) {
     // theta夹角,headlen三角斜边长度
     theta = typeof (theta) != 'undefined' ? theta : 30;
@@ -47,8 +71,8 @@ function test(fromX, fromY, toX, toY, theta, headlen){
         y1:fromY-topY,
         x2:toX+botX,
         y2:toY+botY
-    }; 
-        
+    };
+
     console.log(pot);
 }
-test(4,5,30,40,45,10);
+//test(4,5,30,40,45,10);
