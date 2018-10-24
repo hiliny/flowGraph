@@ -23,23 +23,29 @@ var domNode = document.getElementById("addNode"),
 
 var tmp = new ArrowLine({
   shape:{
-    from:{
-      x:20,
-      y:20
-    },
-    to:{
-      x:290,
-      y:290
-    }
+    x1:50,
+    y1:50,
+    x2:400,
+    y2:400,
   },
   style: {
       stroke: SHAPE_LINE_COLOR,
       lineWidth: LINE_WIDTH,
       lineCap: 'butt'
   },
-  draggable: true
+  draggable: true,
+  onclick:function(){
+    this.attr({
+        style: {
+            stroke: ACTIVE_COLOR
+        }
+    });
+    currentNode = this;
+    checkedNode = true;
+  }
 });
 zr.add(tmp);
+nodeCache.push(tmp);
 
 // 点击canvas容器，取消激活节点
 zr.on('click', function () {
